@@ -16,7 +16,6 @@ namespace LibraryMaterial
         public AdminPanel()
         {
             InitializeComponent();
-            panel3.BackColor = Color.FromArgb(255, 152, 0);
             button1.MouseEnter += new EventHandler(button1_MouseEnter);
             button1.MouseLeave += new EventHandler(button1_MouseLeave);
             bunifuFlatButton1.MouseDown += new EventHandler(bunifuFlatButton1_MouseEnter);

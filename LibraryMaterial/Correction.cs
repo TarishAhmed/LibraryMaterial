@@ -20,7 +20,7 @@ namespace LibraryMaterial
         }
 
 
-        List<String> Qno = new List<String>();
+        List<String> Qn = new List<String>();
         SqlConnection connection;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\App_Data\\Library.mdf;Integrated Security = True; Connect Timeout = 30";
         private void Correction_Load(object sender, EventArgs e)
@@ -61,11 +61,11 @@ namespace LibraryMaterial
             {
                 while (Qnoreader.Read())
                 {
-                    Qno.Add(Qnoreader.GetInt32(0).ToString());
+                    Qn.Add(Qnoreader.GetInt32(0).ToString());
                 }
 
             }
-            listBox_questionno.DataSource = Qno;
+            listBox_questionno.DataSource = Qn;
             connection.Close();
         }
 
@@ -106,16 +106,26 @@ namespace LibraryMaterial
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
+            try { 
             connection = new SqlConnection(connectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("UPDATE StudentAnswer SET Mark_Obtained=@mark WHERE Qno=@qno", connection);
-            command.Parameters.AddWithValue("@mark", txt_markscor.Text);
-            command.Parameters.AddWithValue("@qno", listBox_questionno.GetItemText(listBox_questionno.SelectedItem));
-            command.CommandType = CommandType.Text;
+                double f = Convert.ToDouble(txt_markscor.Text);
+                int j = Convert.ToInt32(listBox_questionno.GetItemText(listBox_questionno.SelectedItem));
+                string k = list_roll.GetItemText(list_roll.SelectedItem).ToString();
+            SqlCommand command = new SqlCommand("UPDATE StudentAnswer SET Mark_Obtained=@mark WHERE Qno=@qno AND Roll_No=@roll", connection);
+            command.Parameters.AddWithValue("@mark",f);
+            command.Parameters.AddWithValue("@qno", j);
+                command.Parameters.AddWithValue("@roll", k);
+                command.CommandType = CommandType.Text;
             int i = command.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show("Mark Entered");
             txt_markscor.Text = "";
+            }
+            catch(Exception ae)
+            {
+                MessageBox.Show(ae.ToString());
+            }
         }
     }
 }

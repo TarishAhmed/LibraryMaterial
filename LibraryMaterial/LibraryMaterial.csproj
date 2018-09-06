@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\..\Desktop\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>Packages\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -99,6 +99,12 @@
     <Compile Include="Admin_Login.Designer.cs">
       <DependentUpon>Admin_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Panel.Designer.cs">
+      <DependentUpon>Admin_Panel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerQuestion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,28 @@
     <Compile Include="PostQuestion.Designer.cs">
       <DependentUpon>PostQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student Answers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student Answers.Designer.cs">
+      <DependentUpon>Student Answers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student List.Designer.cs">
+      <DependentUpon>Student List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAnswerGridView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentAnswerGridView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudentListGridView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentListGridView.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +180,9 @@
     <EmbeddedResource Include="Admin_Login.resx">
       <DependentUpon>Admin_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Panel.resx">
+      <DependentUpon>Admin_Panel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AnswerQuestion.resx">
       <DependentUpon>AnswerQuestion.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PostQuestion.resx">
       <DependentUpon>PostQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student Answers.resx">
+      <DependentUpon>Student Answers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student List.resx">
+      <DependentUpon>Student List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
@@ -222,6 +259,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StudentAnswerGridView.xsc">
+      <DependentUpon>StudentAnswerGridView.xsd</DependentUpon>
+    </None>
+    <None Include="StudentAnswerGridView.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentAnswerGridView.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentAnswerGridView.xss">
+      <DependentUpon>StudentAnswerGridView.xsd</DependentUpon>
+    </None>
+    <None Include="StudentListGridView.xsc">
+      <DependentUpon>StudentListGridView.xsd</DependentUpon>
+    </None>
+    <None Include="StudentListGridView.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentListGridView.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StudentListGridView.xss">
+      <DependentUpon>StudentListGridView.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
