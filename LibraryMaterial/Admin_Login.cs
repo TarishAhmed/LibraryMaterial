@@ -78,7 +78,7 @@ namespace LibraryMaterial
                 if (dt.Rows.Count > 0)
                 {
                     this.Hide();
-                    AdminPanel admin = new AdminPanel();
+                    Admin_Panel admin = new Admin_Panel();
                     admin.ShowDialog();
                     this.Close();
                 }

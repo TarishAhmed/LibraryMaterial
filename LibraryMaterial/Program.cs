@@ -16,7 +16,7 @@ namespace LibraryMaterial
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminPanel());
+            Application.Run(new Admin_Panel());
         }
     }
 }

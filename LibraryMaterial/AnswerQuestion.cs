@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
+using LibraryMaterial.AnswerQuestionDataTableAdapters;
 
 namespace LibraryMaterial
 {
     public partial class AnswerQuestion : UserControl
     {
-        
+        string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
+        QuestionTableAdapter qnolist = new QuestionTableAdapter();
         public AnswerQuestion()
         {
             InitializeComponent();
             try
             {
-                this.questionTableAdapter.FillBy(this.libraryDataSet.Question);
+                listBox_questionno.DataSource = qnolist.GetDataBy(Student_Login.roll_No);
             }
             catch (System.Exception ex)
             {
@@ -39,7 +42,7 @@ namespace LibraryMaterial
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             string text = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
-            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\App_Data\\Library.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(dbString);
             con.Open();
             SqlCommand command = new SqlCommand("Select Question,Picture from Question where id=@zip",con);
             command.Parameters.AddWithValue("@zip", text);
@@ -78,7 +81,7 @@ namespace LibraryMaterial
         {
             if (txt_answer.Text != "")
             {
-                SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\App_Data\\Library.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(dbString);
                 SqlCommand cmd;
                 con.Open();
                 string s = "insert into StudentAnswer(Roll_No,Answer) values(@p1,@p2)";
@@ -92,7 +95,8 @@ namespace LibraryMaterial
                 pictureBox1.Image = null;
                 metroLabel3.Visible = false;
                 txt_answer.Text = null;
-                
+                listBox_questionno.DataSource = qnolist.GetDataBy(Student_Login.roll_No);
+
             }
         }
     }

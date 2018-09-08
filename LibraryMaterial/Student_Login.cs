@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -17,7 +18,7 @@ namespace LibraryMaterial
     {
         public static string roll_No;
         public static string name;
-
+        string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
         public Student_Login()
         {
             InitializeComponent();
@@ -64,34 +65,37 @@ namespace LibraryMaterial
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\taris\\source\\repos\\LibraryMaterial\\LibraryMaterial\\Library.mdf;Integrated Security=True;Connect Timeout=30";
-            con.Open();
-            string student = metroTextBox1.Text;
-            SqlCommand cmd = new SqlCommand("select Roll_No,Name from StudentLogin where Roll_No='" + metroTextBox1.Text + "';", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.Read())
+                SqlConnection con = new SqlConnection(dbString);
+                con.Open();
+                string student = metroTextBox1.Text;
+                SqlCommand cmd = new SqlCommand("select Roll_No,Name from StudentLogin where Roll_No='" + metroTextBox1.Text + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    roll_No = String.Format("{0}", reader["Roll_No"]);
-                    name = String.Format("{0}", reader["Name"]);
+                    if (reader.Read())
+                    {
+                        roll_No = String.Format("{0}", reader["Roll_No"]);
+                        name = String.Format("{0}", reader["Name"]);
+                    }
                 }
+                if (dt.Rows.Count > 0)
+                {
+                    this.Hide();
+                    StudentPanel studentDialog = new StudentPanel();
+                    studentDialog.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Login Credentials");
+                }
+                con.Close();
             }
-            if (dt.Rows.Count > 0)
-            {
-                this.Hide();
-                StudentPanel studentDialog = new StudentPanel();
-                studentDialog.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid Login Credentials");
-            }
-            con.Close();
+            catch { }
         }
     }
 }

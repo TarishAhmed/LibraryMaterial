@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>Packages\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -72,6 +72,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
@@ -87,12 +88,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminPanel.Designer.cs">
-      <DependentUpon>AdminPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +105,11 @@
     </Compile>
     <Compile Include="AnswerQuestion.Designer.cs">
       <DependentUpon>AnswerQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnswerQuestionData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnswerQuestionData.xsd</DependentUpon>
     </Compile>
     <Compile Include="Correction.cs">
       <SubType>UserControl</SubType>
@@ -174,9 +174,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdminPanel.resx">
-      <DependentUpon>AdminPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Login.resx">
       <DependentUpon>Admin_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +211,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="AnswerQuestionData.xsc">
+      <DependentUpon>AnswerQuestionData.xsd</DependentUpon>
+    </None>
+    <None Include="AnswerQuestionData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AnswerQuestionData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AnswerQuestionData.xss">
+      <DependentUpon>AnswerQuestionData.xsd</DependentUpon>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -283,7 +291,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\admin-with-cogwheels %282%29.png" />

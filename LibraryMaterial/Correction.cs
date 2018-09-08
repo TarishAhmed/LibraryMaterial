@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
 
 namespace LibraryMaterial
 {
@@ -22,10 +23,10 @@ namespace LibraryMaterial
 
         List<String> Qn = new List<String>();
         SqlConnection connection;
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\App_Data\\Library.mdf;Integrated Security = True; Connect Timeout = 30";
+        string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
         private void Correction_Load(object sender, EventArgs e)
         {
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(dbString);
             using (connection)
             {
                 List<String> Roll = new List<String>();
@@ -53,7 +54,7 @@ namespace LibraryMaterial
         private void list_roll_SelectedIndexChanged(object sender, EventArgs e)
         {
             string text = list_roll.GetItemText(list_roll.SelectedItem);
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(dbString);
             connection.Open();
             SqlCommand command = new SqlCommand("Select Qno from StudentAnswer where Roll_No=@zip", connection);
             command.Parameters.AddWithValue("@zip", text);
@@ -72,7 +73,7 @@ namespace LibraryMaterial
         private void listBox_questionno_SelectedIndexChanged(object sender, EventArgs e)
         {
             string text = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(dbString);
             connection.Open();
             SqlCommand command = new SqlCommand("Select Question.Question, StudentAnswer.Answer, Question.Picture, Question.Mark_Available from Question INNER JOIN StudentAnswer ON Question.Qno=StudentAnswer.Qno where StudentAnswer.Qno=@zip", connection);
             command.Parameters.AddWithValue("@zip", text);
@@ -107,7 +108,7 @@ namespace LibraryMaterial
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
             try { 
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(dbString);
             connection.Open();
                 double f = Convert.ToDouble(txt_markscor.Text);
                 int j = Convert.ToInt32(listBox_questionno.GetItemText(listBox_questionno.SelectedItem));

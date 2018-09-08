@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
 
 namespace LibraryMaterial
 {
     public partial class PostQuestion : UserControl
     {
         string filename;
-        
+        string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
         public PostQuestion()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace LibraryMaterial
             if (Convert.ToInt32(metroTextBox2.Text) >= 0 && Convert.ToInt32(metroTextBox2.Text) <= 50)
             {
                 
-                SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\App_Data\\Library.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(dbString);
                 SqlCommand cmd;
                 con.Open();
                 string s;
