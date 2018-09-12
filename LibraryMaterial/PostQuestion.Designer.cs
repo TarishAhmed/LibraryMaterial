@@ -74,6 +74,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.CustomBackground = true;
             this.metroLabel1.Location = new System.Drawing.Point(55, 270);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(49, 19);
@@ -106,6 +107,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.CustomBackground = true;
             this.metroLabel2.Location = new System.Drawing.Point(55, 82);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(61, 19);
@@ -116,6 +118,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
+            this.metroLabel3.CustomBackground = true;
             this.metroLabel3.Location = new System.Drawing.Point(463, 343);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(89, 19);

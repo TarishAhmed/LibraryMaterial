@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace LibraryMaterial
 {
@@ -59,22 +60,24 @@ namespace LibraryMaterial
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\taris\\source\\repos\\LibraryMaterial\\LibraryMaterial\\Library.mdf;Integrated Security=True;Connect Timeout=30";
-            con.Open();
-            string username = materialSingleLineTextField1.Text;
-            string password = materialSingleLineTextField2.Text;
-            SqlCommand cmd = new SqlCommand("select UserName,Password from AdminLogin where UserName='"+username+"' and Password='"+password+"'",con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.Read())
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
+                con.Open();
+                string username = materialSingleLineTextField1.Text;
+                string password = materialSingleLineTextField2.Text;
+                SqlCommand cmd = new SqlCommand("select UserName,Password from AdminLogin where UserName='" + username + "' and Password='" + password + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    User = String.Format("{0}", reader["UserName"]);
+                    if (reader.Read())
+                    {
+                        User = String.Format("{0}", reader["UserName"]);
+                    }
                 }
-            }
                 if (dt.Rows.Count > 0)
                 {
                     this.Hide();
@@ -86,7 +89,9 @@ namespace LibraryMaterial
                 {
                     MessageBox.Show("Invalid Login Credentials");
                 }
-            con.Close();
+                con.Close();
+            }
+            catch { }
 
         }
 

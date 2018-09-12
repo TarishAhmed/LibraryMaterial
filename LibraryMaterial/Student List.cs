@@ -21,7 +21,15 @@ namespace LibraryMaterial
 
         private void Student_List_Load(object sender, EventArgs e)
         {
-            this.studentLoginTableAdapter.Fill(this.studentListGridView.StudentLogin);
+            try
+            {
+                this.studentLoginTableAdapter.Fill(this.libraryDataSet.StudentLogin);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
+
     }
 }

@@ -21,7 +21,20 @@ namespace LibraryMaterial
 
         private void Student_Answers_Load(object sender, EventArgs e)
         {
-            this.studentAnswerTableAdapter.Fill(this.studentAnswerGridView.StudentAnswer);
+            try
+            {
+                studentAnswerTableAdapter.Fill(libraryDataSet1.StudentAnswer);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

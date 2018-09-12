@@ -88,6 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,31 +112,16 @@
     <Compile Include="AnswerQuestion.Designer.cs">
       <DependentUpon>AnswerQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnswerQuestionData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AnswerQuestionData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Correction.cs">
+    <Compile Include="Correction1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Correction.Designer.cs">
-      <DependentUpon>Correction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <Compile Include="Correction1.Designer.cs">
+      <DependentUpon>Correction1.cs</DependentUpon>
     </Compile>
     <Compile Include="LibraryDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LibraryDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LibraryDataSet11.xsd</DependentUpon>
     </Compile>
     <Compile Include="PostQuestion.cs">
       <SubType>UserControl</SubType>
@@ -150,16 +141,6 @@
     <Compile Include="Student List.Designer.cs">
       <DependentUpon>Student List.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentAnswerGridView.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentAnswerGridView.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="StudentListGridView.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentListGridView.xsd</DependentUpon>
-    </Compile>
     <Compile Include="StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +155,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin_Login.resx">
       <DependentUpon>Admin_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,8 +167,8 @@
     <EmbeddedResource Include="AnswerQuestion.resx">
       <DependentUpon>AnswerQuestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Correction.resx">
-      <DependentUpon>Correction.cs</DependentUpon>
+    <EmbeddedResource Include="Correction1.resx">
+      <DependentUpon>Correction1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostQuestion.resx">
       <DependentUpon>PostQuestion.cs</DependentUpon>
@@ -211,28 +195,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="AnswerQuestionData.xsc">
-      <DependentUpon>AnswerQuestionData.xsd</DependentUpon>
-    </None>
-    <None Include="AnswerQuestionData.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AnswerQuestionData.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AnswerQuestionData.xss">
-      <DependentUpon>AnswerQuestionData.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="LibraryDataSet1.xsc">
       <DependentUpon>LibraryDataSet1.xsd</DependentUpon>
     </None>
@@ -243,17 +205,6 @@
     </None>
     <None Include="LibraryDataSet1.xss">
       <DependentUpon>LibraryDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LibraryDataSet11.xsc">
-      <DependentUpon>LibraryDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="LibraryDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LibraryDataSet11.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LibraryDataSet11.xss">
-      <DependentUpon>LibraryDataSet11.xsd</DependentUpon>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -267,32 +218,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StudentAnswerGridView.xsc">
-      <DependentUpon>StudentAnswerGridView.xsd</DependentUpon>
-    </None>
-    <None Include="StudentAnswerGridView.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StudentAnswerGridView.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StudentAnswerGridView.xss">
-      <DependentUpon>StudentAnswerGridView.xsd</DependentUpon>
-    </None>
-    <None Include="StudentListGridView.xsc">
-      <DependentUpon>StudentListGridView.xsd</DependentUpon>
-    </None>
-    <None Include="StudentListGridView.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StudentListGridView.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StudentListGridView.xss">
-      <DependentUpon>StudentListGridView.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

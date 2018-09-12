@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using System.Configuration;
-using LibraryMaterial.AnswerQuestionDataTableAdapters;
+using LibraryMaterial.LibraryDataSetTableAdapters;
+//using LibraryMaterial.AnswerQuestionDataTableAdapters;
 
 namespace LibraryMaterial
 {
@@ -41,11 +42,11 @@ namespace LibraryMaterial
         }
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            string text = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
+            string select_Qno = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
             SqlConnection con = new SqlConnection(dbString);
             con.Open();
-            SqlCommand command = new SqlCommand("Select Question,Picture from Question where id=@zip",con);
-            command.Parameters.AddWithValue("@zip", text);
+            SqlCommand command = new SqlCommand("Select Question,Picture from Question where Qno=@zip",con);
+            command.Parameters.AddWithValue("@zip", select_Qno);
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 if(reader.Read())
@@ -79,15 +80,17 @@ namespace LibraryMaterial
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
+            string select_Qno = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
             if (txt_answer.Text != "")
             {
                 SqlConnection con = new SqlConnection(dbString);
                 SqlCommand cmd;
                 con.Open();
-                string s = "insert into StudentAnswer(Roll_No,Answer) values(@p1,@p2)";
+                string s = "insert into StudentAnswer(Roll_No,Answer,Qno) values(@p1,@p2,@p3)";
                 cmd = new SqlCommand(s, con);
                 cmd.Parameters.AddWithValue("@p1", Student_Login.roll_No);
                 cmd.Parameters.AddWithValue("@p2", txt_answer.Text);
+                cmd.Parameters.AddWithValue("@p3", select_Qno);
                 cmd.CommandType = CommandType.Text;
                 int i = cmd.ExecuteNonQuery();
                 con.Close();
