@@ -110,15 +110,22 @@ namespace LibraryMaterial
                 command.Parameters.AddWithValue("@roll", k);
                 command.CommandType = CommandType.Text;
                 int i = command.ExecuteNonQuery();
+                command.CommandText = "UPDATE StudentLogin SET Total_Mark=Total_Mark+@mar WHERE Roll_No=@rol";
+                command.Parameters.AddWithValue("@mar", f);
+                command.Parameters.AddWithValue("@rol", k);
+                command.ExecuteNonQuery();
                 connection.Close();
                 MessageBox.Show("Mark Entered");
                 txt_markscor.Text = "";
                 listBox_Qno.DataSource = rollno_list.GetQnoFROMRoll(select_roll);
+                
+                
             }
             catch (Exception ae)
             {
                 MessageBox.Show(ae.ToString());
             }
         }
+
     }
 }

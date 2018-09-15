@@ -38,6 +38,7 @@ namespace LibraryMaterial
             correction11.Hide();
             student_List1.Hide();
             student_Answers1.Hide();
+            ranking1.Hide();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -50,6 +51,7 @@ namespace LibraryMaterial
             correction11.Show();
             student_List1.Hide();
             student_Answers1.Hide();
+            ranking1.Hide();
         }
 
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace LibraryMaterial
             correction11.Hide();
             student_List1.Hide();
             student_Answers1.Show();
+            ranking1.Hide();
 
 
         }
@@ -68,6 +71,7 @@ namespace LibraryMaterial
             correction11.Hide();
             student_List1.Show();
             student_Answers1.Hide();
+            ranking1.Hide();
         }
 
         private void postQuestion1_Load(object sender, EventArgs e)
@@ -81,6 +85,34 @@ namespace LibraryMaterial
             correction11.Hide();
             student_List1.Hide();
             student_Answers1.Hide();
+            ranking1.Hide();
+        }
+
+        private void correction11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuTileButton1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Admin_Login Adminlog = new Admin_Login();
+            Adminlog.ShowDialog();
+            Close();
+        }
+
+        private void bunifuFlatButton3_Click(object sender, EventArgs e)
+        {
+            postQuestion1.Hide();
+            correction11.Hide();
+            student_List1.Hide();
+            student_Answers1.Hide();
+            ranking1.Show();
         }
     }
 }

@@ -32,21 +32,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.studentLoginBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDataSet = new LibraryMaterial.LibraryDataSet();
-            this.studentLoginBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.studentLoginBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentLoginTableAdapter = new LibraryMaterial.LibraryDataSetTableAdapters.StudentLoginTableAdapter();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentLoginBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDataSet = new LibraryMaterial.LibraryDataSet();
+            this.studentLoginBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentLoginBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentLoginTableAdapter = new LibraryMaterial.LibraryDataSetTableAdapters.StudentLoginTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentLoginBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentLoginBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentLoginBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -82,22 +85,9 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(700, 527);
+            this.dataGridView1.Size = new System.Drawing.Size(700, 485);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // studentLoginBindingSource2
-            // 
-            this.studentLoginBindingSource2.DataMember = "StudentLogin";
-            this.studentLoginBindingSource2.DataSource = this.libraryDataSet;
-            // 
-            // libraryDataSet
-            // 
-            this.libraryDataSet.DataSetName = "LibraryDataSet";
-            this.libraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentLoginTableAdapter
-            // 
-            this.studentLoginTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -132,11 +122,43 @@
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 110;
             // 
+            // studentLoginBindingSource2
+            // 
+            this.studentLoginBindingSource2.DataMember = "StudentLogin";
+            this.studentLoginBindingSource2.DataSource = this.libraryDataSet;
+            // 
+            // libraryDataSet
+            // 
+            this.libraryDataSet.DataSetName = "LibraryDataSet";
+            this.libraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentLoginTableAdapter
+            // 
+            this.studentLoginTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(700, 485);
+            this.panel1.TabIndex = 1;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(311, 491);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 2;
+            this.metroButton1.Text = "Refresh";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // Student_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.panel1);
             this.Name = "Student_List";
             this.Size = new System.Drawing.Size(700, 527);
             this.Load += new System.EventHandler(this.Student_List_Load);
@@ -145,6 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentLoginBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentLoginBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -162,5 +185,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.Panel panel1;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

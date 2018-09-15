@@ -14,9 +14,16 @@ namespace LibraryMaterial
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Admin_Panel());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Admin_Panel());
+            }
+            catch(Exception)
+            {
+
+            }
         }
     }
 }

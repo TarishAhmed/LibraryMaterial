@@ -20,11 +20,9 @@ namespace LibraryMaterial
         public StudentPanel()
         {
             InitializeComponent();
-            panel3.BackColor= Color.FromArgb(255, 152, 0);
             button1.MouseEnter += new EventHandler(button1_MouseEnter);
             button1.MouseLeave += new EventHandler(button1_MouseLeave);
             bunifuFlatButton1.MouseDown += new EventHandler(bunifuFlatButton1_MouseEnter);
-            label1.ForeColor= Color.FromArgb(0, 105, 92);
             metroLabel1.Text = Student_Login.roll_No;
             metroLabel2.Text = Student_Login.name;
         }
@@ -44,7 +42,9 @@ namespace LibraryMaterial
         }
         private void StudentPanel_Load(object sender, EventArgs e)
         {
-
+            answerQuestion2.Show();
+            marks1.Hide();
+            ranking1.Hide();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -81,21 +81,35 @@ namespace LibraryMaterial
         }
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            answerQuestion1.Show();
+            answerQuestion2.Show();
+            ranking1.Hide();
+            marks1.Hide();
         }
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            answerQuestion1.Hide();
+            answerQuestion2.Hide();
+            ranking1.Hide();
+            marks1.Show();
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-            answerQuestion1.Hide();
+            answerQuestion2.Hide();
+            ranking1.Show();
+            marks1.Hide();
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Student_Login studentlog = new Student_Login();
+            studentlog.ShowDialog();
+            Close();
         }
     }
 }

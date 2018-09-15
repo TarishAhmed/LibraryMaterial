@@ -11,13 +11,13 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Configuration;
 using LibraryMaterial.LibraryDataSetTableAdapters;
-//using LibraryMaterial.AnswerQuestionDataTableAdapters;
+
 
 namespace LibraryMaterial
 {
     public partial class AnswerQuestion : UserControl
     {
-        string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
+        
         QuestionTableAdapter qnolist = new QuestionTableAdapter();
         public AnswerQuestion()
         {
@@ -42,6 +42,7 @@ namespace LibraryMaterial
         }
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
+            string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
             string select_Qno = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
             SqlConnection con = new SqlConnection(dbString);
             con.Open();
@@ -80,6 +81,7 @@ namespace LibraryMaterial
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
+            string dbString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
             string select_Qno = listBox_questionno.GetItemText(listBox_questionno.SelectedItem);
             if (txt_answer.Text != "")
             {

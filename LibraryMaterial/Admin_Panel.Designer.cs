@@ -38,15 +38,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.postQuestion1 = new LibraryMaterial.PostQuestion();
-            this.student_List1 = new LibraryMaterial.Student_List();
             this.correction11 = new LibraryMaterial.Correction1();
             this.student_Answers1 = new LibraryMaterial.Student_Answers();
+            this.postQuestion1 = new LibraryMaterial.PostQuestion();
+            this.student_List1 = new LibraryMaterial.Student_List();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.ranking1 = new LibraryMaterial.Ranking();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.panel1.Controls.Add(this.metroButton1);
             this.panel1.Controls.Add(this.bunifuFlatButton5);
             this.panel1.Controls.Add(this.bunifuFlatButton4);
             this.panel1.Controls.Add(this.bunifuFlatButton3);
@@ -172,6 +174,7 @@
             this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton3.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton3.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
             // 
             // bunifuFlatButton2
             // 
@@ -270,7 +273,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.metroLabel2);
             this.panel2.Controls.Add(this.metroLabel1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -279,31 +281,18 @@
             this.panel2.Size = new System.Drawing.Size(900, 70);
             this.panel2.TabIndex = 4;
             // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.CustomBackground = true;
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.Location = new System.Drawing.Point(454, 9);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(134, 25);
-            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroLabel2.TabIndex = 4;
-            this.metroLabel2.Text = "Student Name";
-            this.metroLabel2.UseStyleColors = true;
-            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.CustomBackground = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(470, 40);
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.Location = new System.Drawing.Point(494, 26);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(85, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(68, 25);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroLabel1.TabIndex = 3;
-            this.metroLabel1.Text = "Roll Number";
+            this.metroLabel1.Text = "Admin";
             this.metroLabel1.UseStyleColors = true;
             // 
             // button1
@@ -332,11 +321,27 @@
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // correction11
+            // 
+            this.correction11.BackColor = System.Drawing.SystemColors.Control;
+            this.correction11.Location = new System.Drawing.Point(200, 70);
+            this.correction11.Name = "correction11";
+            this.correction11.Size = new System.Drawing.Size(697, 527);
+            this.correction11.TabIndex = 8;
+            this.correction11.Load += new System.EventHandler(this.correction11_Load);
+            // 
+            // student_Answers1
+            // 
+            this.student_Answers1.Location = new System.Drawing.Point(200, 70);
+            this.student_Answers1.Name = "student_Answers1";
+            this.student_Answers1.Size = new System.Drawing.Size(700, 527);
+            this.student_Answers1.TabIndex = 9;
+            // 
             // postQuestion1
             // 
             this.postQuestion1.Location = new System.Drawing.Point(200, 70);
             this.postQuestion1.Name = "postQuestion1";
-            this.postQuestion1.Size = new System.Drawing.Size(700, 527);
+            this.postQuestion1.Size = new System.Drawing.Size(697, 527);
             this.postQuestion1.TabIndex = 5;
             this.postQuestion1.Load += new System.EventHandler(this.postQuestion1_Load);
             // 
@@ -347,19 +352,24 @@
             this.student_List1.Size = new System.Drawing.Size(700, 527);
             this.student_List1.TabIndex = 7;
             // 
-            // correction11
+            // metroButton1
             // 
-            this.correction11.Location = new System.Drawing.Point(200, 70);
-            this.correction11.Name = "correction11";
-            this.correction11.Size = new System.Drawing.Size(697, 527);
-            this.correction11.TabIndex = 8;
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(-1, 476);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(201, 54);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroButton1.TabIndex = 6;
+            this.metroButton1.Text = "Log Out";
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
-            // student_Answers1
+            // ranking1
             // 
-            this.student_Answers1.Location = new System.Drawing.Point(200, 70);
-            this.student_Answers1.Name = "student_Answers1";
-            this.student_Answers1.Size = new System.Drawing.Size(700, 527);
-            this.student_Answers1.TabIndex = 9;
+            this.ranking1.Location = new System.Drawing.Point(200, 70);
+            this.ranking1.Name = "ranking1";
+            this.ranking1.Size = new System.Drawing.Size(697, 527);
+            this.ranking1.TabIndex = 10;
             // 
             // Admin_Panel
             // 
@@ -368,10 +378,11 @@
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.postQuestion1);
-            this.Controls.Add(this.student_List1);
             this.Controls.Add(this.correction11);
             this.Controls.Add(this.student_Answers1);
+            this.Controls.Add(this.postQuestion1);
+            this.Controls.Add(this.student_List1);
+            this.Controls.Add(this.ranking1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Admin_Panel";
             this.Text = "Admin_Panel";
@@ -393,7 +404,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.Button button1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
@@ -405,5 +415,7 @@
         private Student_List student_List1;
         private Correction1 correction11;
         private Student_Answers student_Answers1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private Ranking ranking1;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -41,7 +42,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.answerQuestion1 = new LibraryMaterial.AnswerQuestion();
+            this.answerQuestion2 = new LibraryMaterial.AnswerQuestion();
+            this.ranking1 = new LibraryMaterial.Ranking();
+            this.marks1 = new LibraryMaterial.Marks();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,6 +53,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.panel1.Controls.Add(this.metroButton1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.bunifuFlatButton3);
             this.panel1.Controls.Add(this.bunifuFlatButton2);
@@ -59,6 +63,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 600);
             this.panel1.TabIndex = 0;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(0, 543);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(201, 57);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroButton1.TabIndex = 7;
+            this.metroButton1.Text = "Log Out";
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // panel3
             // 
@@ -206,6 +222,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.CustomBackground = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.Location = new System.Drawing.Point(295, 9);
             this.metroLabel2.Name = "metroLabel2";
@@ -218,6 +235,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.CustomBackground = true;
             this.metroLabel1.Location = new System.Drawing.Point(311, 40);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(84, 19);
@@ -254,13 +272,26 @@
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // answerQuestion1
+            // answerQuestion2
             // 
-            this.answerQuestion1.Location = new System.Drawing.Point(200, 70);
-            this.answerQuestion1.Name = "answerQuestion1";
-            this.answerQuestion1.Size = new System.Drawing.Size(700, 527);
-            this.answerQuestion1.TabIndex = 2;
-            this.answerQuestion1.Load += new System.EventHandler(this.answerQuestion1_Load);
+            this.answerQuestion2.Location = new System.Drawing.Point(200, 70);
+            this.answerQuestion2.Name = "answerQuestion2";
+            this.answerQuestion2.Size = new System.Drawing.Size(700, 527);
+            this.answerQuestion2.TabIndex = 2;
+            // 
+            // ranking1
+            // 
+            this.ranking1.Location = new System.Drawing.Point(200, 70);
+            this.ranking1.Name = "ranking1";
+            this.ranking1.Size = new System.Drawing.Size(700, 527);
+            this.ranking1.TabIndex = 3;
+            // 
+            // marks1
+            // 
+            this.marks1.Location = new System.Drawing.Point(200, 70);
+            this.marks1.Name = "marks1";
+            this.marks1.Size = new System.Drawing.Size(700, 527);
+            this.marks1.TabIndex = 4;
             // 
             // StudentPanel
             // 
@@ -268,9 +299,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.answerQuestion1);
+            this.Controls.Add(this.answerQuestion2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ranking1);
+            this.Controls.Add(this.marks1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -296,8 +329,12 @@
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private AnswerQuestion answerQuestion1;
+        //private AnswerQuestion answerQuestion1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private AnswerQuestion answerQuestion2;
+        private Ranking ranking1;
+        private Marks marks1;
     }
 }

@@ -139,10 +139,13 @@
   <data name="admin_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin-with-cogwheels (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="picturebox1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picturebox1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="student_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-silhouette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="picturebox1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picturebox1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
