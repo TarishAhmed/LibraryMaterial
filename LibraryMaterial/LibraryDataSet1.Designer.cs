@@ -681,6 +681,8 @@ namespace LibraryMaterial {
             
             private global::System.Data.DataColumn columnPicture;
             
+            private global::System.Data.DataColumn columnPostDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public QuestionDataTable() {
@@ -748,6 +750,14 @@ namespace LibraryMaterial {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PostDateColumn {
+                get {
+                    return this.columnPostDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -783,13 +793,14 @@ namespace LibraryMaterial {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public QuestionRow AddQuestionRow(string Question, decimal Mark_Available, byte[] Picture) {
+            public QuestionRow AddQuestionRow(string Question, decimal Mark_Available, byte[] Picture, System.DateTime PostDate) {
                 QuestionRow rowQuestionRow = ((QuestionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Question,
                         Mark_Available,
-                        Picture};
+                        Picture,
+                        PostDate};
                 rowQuestionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowQuestionRow);
                 return rowQuestionRow;
@@ -823,6 +834,7 @@ namespace LibraryMaterial {
                 this.columnQuestion = base.Columns["Question"];
                 this.columnMark_Available = base.Columns["Mark_Available"];
                 this.columnPicture = base.Columns["Picture"];
+                this.columnPostDate = base.Columns["PostDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -836,6 +848,8 @@ namespace LibraryMaterial {
                 base.Columns.Add(this.columnMark_Available);
                 this.columnPicture = new global::System.Data.DataColumn("Picture", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPicture);
+                this.columnPostDate = new global::System.Data.DataColumn("PostDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPostDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnQno}, true));
                 this.columnQno.AutoIncrement = true;
@@ -1727,6 +1741,22 @@ namespace LibraryMaterial {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime PostDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableQuestion.PostDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PostDate\' in table \'Question\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableQuestion.PostDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsQuestionNull() {
                 return this.IsNull(this.tableQuestion.QuestionColumn);
             }
@@ -1759,6 +1789,18 @@ namespace LibraryMaterial {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPictureNull() {
                 this[this.tableQuestion.PictureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPostDateNull() {
+                return this.IsNull(this.tableQuestion.PostDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPostDateNull() {
+                this[this.tableQuestion.PostDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2670,36 +2712,41 @@ namespace LibraryMaterial.LibraryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Question", "Question");
             tableMapping.ColumnMappings.Add("Mark_Available", "Mark_Available");
             tableMapping.ColumnMappings.Add("Picture", "Picture");
+            tableMapping.ColumnMappings.Add("PostDate", "PostDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Question] WHERE (([Qno] = @Original_Qno) AND ((@IsNull_Mark_Av" +
-                "ailable = 1 AND [Mark_Available] IS NULL) OR ([Mark_Available] = @Original_Mark_" +
-                "Available)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Question] WHERE (([Qno] = @Original_Qno) AND ((@IsNull_Mark_Available = 1 AND [Mark_Available] IS NULL) OR ([Mark_Available] = @Original_Mark_Available)) AND ((@IsNull_PostDate = 1 AND [PostDate] IS NULL) OR ([PostDate] = @Original_PostDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Qno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Mark_Available", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mark_Available", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Mark_Available", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 1, "Mark_Available", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PostDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PostDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Question] ([Question], [Mark_Available], [Picture]) VALUES (@Q" +
-                "uestion, @Mark_Available, @Picture);\r\nSELECT Qno, Question, Mark_Available, Pict" +
-                "ure FROM Question WHERE (Qno = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Question] ([Question], [Mark_Available], [Picture], [PostDate]) VALU" +
+                "ES (@Question, @Mark_Available, @Picture, @PostDate);\r\nSELECT Qno, Question, Mar" +
+                "k_Available, Picture, PostDate FROM Question WHERE (Qno = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Question", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Question", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mark_Available", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 1, "Mark_Available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Picture", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Picture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PostDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Question] SET [Question] = @Question, [Mark_Available] = @Mark_Available, [Picture] = @Picture WHERE (([Qno] = @Original_Qno) AND ((@IsNull_Mark_Available = 1 AND [Mark_Available] IS NULL) OR ([Mark_Available] = @Original_Mark_Available)));
-SELECT Qno, Question, Mark_Available, Picture FROM Question WHERE (Qno = @Qno)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Question] SET [Question] = @Question, [Mark_Available] = @Mark_Available, [Picture] = @Picture, [PostDate] = @PostDate WHERE (([Qno] = @Original_Qno) AND ((@IsNull_Mark_Available = 1 AND [Mark_Available] IS NULL) OR ([Mark_Available] = @Original_Mark_Available)) AND ((@IsNull_PostDate = 1 AND [PostDate] IS NULL) OR ([PostDate] = @Original_PostDate)));
+SELECT Qno, Question, Mark_Available, Picture, PostDate FROM Question WHERE (Qno = @Qno)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Question", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Question", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mark_Available", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 1, "Mark_Available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Picture", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Picture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PostDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Qno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Qno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Mark_Available", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mark_Available", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Mark_Available", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 1, "Mark_Available", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PostDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PostDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qno", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Qno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2716,17 +2763,14 @@ SELECT Qno, Question, Mark_Available, Picture FROM Question WHERE (Qno = @Qno)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Qno, Question, Mark_Available, Picture FROM dbo.Question";
+            this._commandCollection[0].CommandText = "SELECT Qno, Question, Mark_Available, Picture, PostDate FROM Question";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Qno
-FROM            Question
-WHERE        (NOT EXISTS
-                             (SELECT        Qno
-                               FROM            StudentAnswer
-                               WHERE        (Question.Qno = Qno) AND (Roll_No = @roll)))";
+            this._commandCollection[1].CommandText = "SELECT Qno, PostDate FROM Question WHERE (NOT EXISTS (SELECT Qno FROM StudentAnsw" +
+                "er WHERE (Question.Qno = Qno) AND (Roll_No = @roll))) AND (PostDate > @date)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "PostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@roll", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2758,13 +2802,19 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(LibraryDataSet.QuestionDataTable dataTable, string roll) {
+        public virtual int FillBy(LibraryDataSet.QuestionDataTable dataTable, string date, string roll) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((roll == null)) {
+            if ((date == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(roll));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(date));
+            }
+            if ((roll == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(roll));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2777,13 +2827,19 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual LibraryDataSet.QuestionDataTable GetDataBy(string roll) {
+        public virtual LibraryDataSet.QuestionDataTable GetDataBy(string date, string roll) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((roll == null)) {
+            if ((date == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(roll));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(date));
+            }
+            if ((roll == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(roll));
             }
             LibraryDataSet.QuestionDataTable dataTable = new LibraryDataSet.QuestionDataTable();
             this.Adapter.Fill(dataTable);
@@ -2823,7 +2879,7 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Qno, global::System.Nullable<decimal> Original_Mark_Available) {
+        public virtual int Delete(int Original_Qno, global::System.Nullable<decimal> Original_Mark_Available, global::System.Nullable<global::System.DateTime> Original_PostDate) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Qno));
             if ((Original_Mark_Available.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -2832,6 +2888,14 @@ WHERE        (NOT EXISTS
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PostDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_PostDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2853,7 +2917,7 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Question, global::System.Nullable<decimal> Mark_Available, byte[] Picture) {
+        public virtual int Insert(string Question, global::System.Nullable<decimal> Mark_Available, byte[] Picture, global::System.Nullable<global::System.DateTime> PostDate) {
             if ((Question == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2871,6 +2935,12 @@ WHERE        (NOT EXISTS
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((byte[])(Picture));
+            }
+            if ((PostDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(PostDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2892,7 +2962,7 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Question, global::System.Nullable<decimal> Mark_Available, byte[] Picture, int Original_Qno, global::System.Nullable<decimal> Original_Mark_Available, int Qno) {
+        public virtual int Update(string Question, global::System.Nullable<decimal> Mark_Available, byte[] Picture, global::System.Nullable<global::System.DateTime> PostDate, int Original_Qno, global::System.Nullable<decimal> Original_Mark_Available, global::System.Nullable<global::System.DateTime> Original_PostDate, int Qno) {
             if ((Question == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2911,16 +2981,30 @@ WHERE        (NOT EXISTS
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((byte[])(Picture));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Qno));
-            if ((Original_Mark_Available.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Original_Mark_Available.Value));
+            if ((PostDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(PostDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Qno));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Qno));
+            if ((Original_Mark_Available.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_Mark_Available.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PostDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_PostDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Qno));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2941,8 +3025,8 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Question, global::System.Nullable<decimal> Mark_Available, byte[] Picture, int Original_Qno, global::System.Nullable<decimal> Original_Mark_Available) {
-            return this.Update(Question, Mark_Available, Picture, Original_Qno, Original_Mark_Available, Original_Qno);
+        public virtual int Update(string Question, global::System.Nullable<decimal> Mark_Available, byte[] Picture, global::System.Nullable<global::System.DateTime> PostDate, int Original_Qno, global::System.Nullable<decimal> Original_Mark_Available, global::System.Nullable<global::System.DateTime> Original_PostDate) {
+            return this.Update(Question, Mark_Available, Picture, PostDate, Original_Qno, Original_Mark_Available, Original_PostDate, Original_Qno);
         }
     }
     

@@ -36,6 +36,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // 
             // metroTextBox2
             // 
-            this.metroTextBox2.Location = new System.Drawing.Point(478, 371);
+            this.metroTextBox2.Location = new System.Drawing.Point(481, 411);
             this.metroTextBox2.Name = "metroTextBox2";
             this.metroTextBox2.Size = new System.Drawing.Size(56, 23);
             this.metroTextBox2.TabIndex = 5;
@@ -61,7 +63,7 @@
             this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(478, 409);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(481, 449);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -119,17 +121,37 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.CustomBackground = true;
-            this.metroLabel3.Location = new System.Drawing.Point(463, 343);
+            this.metroLabel3.Location = new System.Drawing.Point(466, 383);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(89, 19);
             this.metroLabel3.TabIndex = 11;
             this.metroLabel3.Text = "Mark Allotted";
             this.metroLabel3.UseStyleColors = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(419, 342);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.CustomBackground = true;
+            this.metroLabel4.Location = new System.Drawing.Point(466, 302);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(76, 19);
+            this.metroLabel4.TabIndex = 13;
+            this.metroLabel4.Text = "Expiry Date";
+            this.metroLabel4.UseStyleColors = true;
+            // 
             // PostQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroButton1);
@@ -156,5 +178,7 @@
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }

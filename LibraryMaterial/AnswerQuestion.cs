@@ -24,7 +24,7 @@ namespace LibraryMaterial
             InitializeComponent();
             try
             {
-                listBox_questionno.DataSource = qnolist.GetDataBy(Student_Login.roll_No);
+                listBox_questionno.DataSource = qnolist.GetDataBy(DateTime.Now.ToString(),Student_Login.roll_No);
             }
             catch (System.Exception ex)
             {
@@ -100,7 +100,7 @@ namespace LibraryMaterial
                 pictureBox1.Image = null;
                 metroLabel3.Visible = false;
                 txt_answer.Text = null;
-                listBox_questionno.DataSource = qnolist.GetDataBy(Student_Login.roll_No);
+                listBox_questionno.DataSource = qnolist.GetDataBy(DateTime.Now.ToString(), Student_Login.roll_No);
 
             }
         }

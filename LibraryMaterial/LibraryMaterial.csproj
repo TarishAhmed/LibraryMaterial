@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\taris\Desktop\LibQuiz\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,9 +22,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,6 +46,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A3CD26E89627DF78B24A6B8122A3C95751D83880</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LibraryMaterial_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
@@ -129,6 +142,12 @@
     <Compile Include="PostQuestion.Designer.cs">
       <DependentUpon>PostQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuestionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuestionList.Designer.cs">
+      <DependentUpon>QuestionList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ranking.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,6 +198,9 @@
     <EmbeddedResource Include="PostQuestion.resx">
       <DependentUpon>PostQuestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuestionList.resx">
+      <DependentUpon>QuestionList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ranking.resx">
       <DependentUpon>Ranking.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +237,7 @@
     <None Include="LibraryDataSet1.xss">
       <DependentUpon>LibraryDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="LibraryMaterial_TemporaryKey.pfx" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
