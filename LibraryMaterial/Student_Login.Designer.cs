@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,27 +54,45 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(607, 415);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(54, 23);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Teal;
+            this.metroButton1.TabIndex = 4;
+            this.metroButton1.Text = "LOGIN";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.Location = new System.Drawing.Point(376, 415);
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.Size = new System.Drawing.Size(212, 23);
+            this.metroTextBox1.TabIndex = 3;
+            // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Dancing Script", 78.99999F, System.Drawing.FontStyle.Bold);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 78.99999F, System.Drawing.FontStyle.Bold);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(351, 142);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(310, 148);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(345, 120);
             this.bunifuCustomLabel1.TabIndex = 1;
             this.bunifuCustomLabel1.Text = "Login.";
             // 
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Dancing Script", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.DarkCyan;
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(253, 270);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(443, 90);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(520, 73);
             this.bunifuCustomLabel2.TabIndex = 2;
-            this.bunifuCustomLabel2.Text = "Scan ID to Begin";
+            this.bunifuCustomLabel2.Text = "Enter ID to Begin";
             // 
             // button1
             // 
@@ -85,7 +103,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Dosis", 14.75F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.PaleTurquoise;
             this.button1.Image = global::LibraryMaterial.Properties.Resources.admin_inactive;
             this.button1.Location = new System.Drawing.Point(808, 439);
@@ -101,24 +119,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // metroTextBox1
-            // 
-            this.metroTextBox1.Location = new System.Drawing.Point(376, 415);
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.Size = new System.Drawing.Size(212, 23);
-            this.metroTextBox1.TabIndex = 3;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Highlight = true;
-            this.metroButton1.Location = new System.Drawing.Point(607, 415);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(54, 23);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Teal;
-            this.metroButton1.TabIndex = 4;
-            this.metroButton1.Text = "LOGIN";
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // Student_Login
             // 
