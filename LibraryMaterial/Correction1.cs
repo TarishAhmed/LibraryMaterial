@@ -117,6 +117,8 @@ namespace LibraryMaterial
                 connection.Close();
                 MessageBox.Show("Mark Entered");
                 txt_markscor.Text = "";
+                txt_answer.Text = "";
+                txt_question.Text = "";
                 listBox_Qno.DataSource = rollno_list.GetQnoFROMRoll(select_roll);
                 
                 

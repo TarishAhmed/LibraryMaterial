@@ -100,6 +100,7 @@ namespace LibraryMaterial
                 pictureBox1.Image = null;
                 metroLabel3.Visible = false;
                 txt_answer.Text = null;
+                txt_question.Text = null;
                 listBox_questionno.DataSource = qnolist.GetDataBy(DateTime.Now.ToString(), Student_Login.roll_No);
 
             }
