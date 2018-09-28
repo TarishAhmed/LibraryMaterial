@@ -105,10 +105,10 @@ namespace LibraryMaterial
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            Hide();
+            this.Hide();
             Admin_Login Adminlog = new Admin_Login();
             Adminlog.ShowDialog();
-            Close();
+            this.Dispose();
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)

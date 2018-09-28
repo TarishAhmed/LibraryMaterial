@@ -106,10 +106,10 @@ namespace LibraryMaterial
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            Hide();
+            this.Hide();
             Student_Login studentlog = new Student_Login();
             studentlog.ShowDialog();
-            Close();
+            this.Dispose();
         }
     }
 }

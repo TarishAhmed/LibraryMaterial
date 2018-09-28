@@ -54,14 +54,13 @@ namespace LibraryMaterial
             this.Hide();
             Student_Login studentlog = new Student_Login();
             studentlog.ShowDialog();
-            this.Close();
+            this.Dispose();
 
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["LibraryMaterial.Properties.Settings.LibraryConnectionString"].ConnectionString;
                 con.Open();
@@ -83,15 +82,14 @@ namespace LibraryMaterial
                     this.Hide();
                     Admin_Panel admin = new Admin_Panel();
                     admin.ShowDialog();
-                    this.Close();
+                    this.Dispose();
                 }
                 else
                 {
                     MessageBox.Show("Invalid Login Credentials");
                 }
                 con.Close();
-            }
-            catch { }
+            
 
         }
 

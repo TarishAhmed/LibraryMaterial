@@ -55,7 +55,7 @@ namespace LibraryMaterial
             this.Hide();
             Admin_Login adminlog = new Admin_Login();
             adminlog.ShowDialog();
-            this.Close();
+            this.Dispose();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -87,7 +87,7 @@ namespace LibraryMaterial
                     this.Hide();
                     StudentPanel studentDialog = new StudentPanel();
                     studentDialog.ShowDialog();
-                    this.Close();
+                    this.Dispose();
                 }
                 else
                 {
