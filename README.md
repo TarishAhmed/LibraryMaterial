@@ -1,2 +1,2 @@
 # LibraryMaterial
-Made as a Quiz Application for the inter-college Quiz.
+Made as a Quiz Application for the collegiate Quiz.
